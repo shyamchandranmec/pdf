@@ -34,5 +34,5 @@ node_modules
 
 .idea/
 
-output/pdf-images/*
+output/pdf-images/*.png
 uploads/*
