@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<% for (var i = 0; i < filesArray.length; i++) { %>
+<div class = "parent">
+    <img src="/<%= filesArray[i] %>">
+    <div class =  "overlay"></div>
+</div>
+<% } %>
+
+<script>
+    console.log(<%- JSON.stringify(filesArray) %>)
+</script>
+</body>
+</html>
