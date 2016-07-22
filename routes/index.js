@@ -26,6 +26,13 @@ module.exports = (app) => {
         },
         filename: function (req, file, cb) {
             cb(null, uuid.v1() + ".pdf");
+        },
+        fileFilter: function (req, file, cb) {
+            if (path.extension(file.originalname) !== '.pdf') {
+                return cb(new Error('Only pdfs are allowed'))
+            }
+
+            cb(null, true)
         }
     });
     let upload = multer({storage: storage});
@@ -77,7 +84,7 @@ module.exports = (app) => {
                 (function (iname) {
                     setTimeout(function () {
                         delete global[iname];
-                    }, 5000)
+                    }, 3000)
                 })(imageName);
                 if (!isNaN(count)) {
                     count++;
